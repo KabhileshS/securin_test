@@ -6,7 +6,7 @@ app.use(express.json())
 app.use(cors())
 const mongoose=require('mongoose')
 
-mongoose.connect('mongodb+srv://kabhilesh14:kabhilesh14@cluster0.psjy1hg.mongodb.net/securin', {})
+mongoose.connect(process.env.MONGODB_URL, {})
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.error(err));
 
