@@ -107,37 +107,3 @@ app.listen(port,()=>{
 
 
 
-
-
-
-// app.get("/api/search", async (req, res) => { http://localhost:3000/api/search?rating=4&calories=%3E=127
-//     const calories = req.query.calories;
-//     const title = req.query.title;
-//     const rating = req.query.rating;
-
-//     // Initialize the query object
-//     let query = {};
-
-//     // Filter by calories if provided
-//     if (calories) {
-//         const calorieLimit = parseInt(calories.replace(/[^0-9]/g, '')); // Extract numeric value
-//         query.calories = { $lte: calorieLimit }; // Less than or equal to
-//     }
-
-//     // Filter by title if provided
-//     if (title) {
-//         query.title = { $regex: title, $options: 'i' }; // Case insensitive search
-//     }
-
-//     // Filter by rating if provided
-//     if (rating) {
-//         const ratingLimit = parseFloat(rating.replace(/[^0-9.]/g, '')); // Extract numeric value
-//         query.rating = { $gte: ratingLimit }; // Greater than or equal to
-//     }
-
-//     // Fetch filtered recipes from the database
-//     const recipes = await model.find(query);
-
-//     // Return the filtered recipes
-//     res.json(recipes);
-// });
