@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Recipes</h1>
+    <ul id="ul">
+        <table>
+            <tr>
+                <th>cuisine</th>
+                <th>title</th>
+                <th>rating</th>
+                <th>serves</th>
+            </tr>
+        </table>
+        <!-- <% recipes.forEach(recipes=> { %>
+            <li>
+                <%= recipe.title %> by <%= recipe.cuisine %> <%= recipe.rating %>
+            </li>
+            <% }); %> -->
+    </ul>
+    <button >Load from server</button>
+    <div></div>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on('click','button', function(){
+            // $.ajax({
+            // url: "http://localhost:3000/api/recipes"
+            // }).done(function() {
+            //     $('div').append("done !!! - ");
+            // });
+
+            fetch('http://localhost:3000/api/recipes')
+            .then(res => res.json())
+            .then((res) => {
+            const data = res.data;
+            getElement('name').innerHTML =  'Name: ' + data.name;
+            getElement('symbol').innerHTML = 'Symbol: ' + data.symbol;
+            getElement('rank').innerHTML = 'Rank: ' + data.rank;
+            getElement('price').innerHTML = 'Price: ' + data.quotes.USD.price;
+
+            document.getElementById("ul").innerHTML()
+
+            for(i in data){
+
+            }
+            // do the rest here
+            });
+        });
+    });
+    
+    </script>
+
+</body>
+</html>
